@@ -1,19 +1,17 @@
 """
-这里写希尔伯特-黄变换（HHT）
+这里补充一个原始版的hht
 """
 
 import numpy as np
 from PyEMD import EMD
 from scipy.signal import spectrogram
 import matplotlib.pyplot as plt
-
-
-class HHT:
+class HHT_o:
     def __init__(self, signal, fs):
         self.signal = signal
         self.fs = fs
 
-    def hht(self):
+    def hht_o(self):
         # 进行经验模态分解 (EMD)
         print(self.signal)
         # plt.plot_utils(range(0, len(self.signal)), self.signal)
@@ -43,7 +41,7 @@ class HHT:
             S1 = np.sqrt(s1_square)
             S2 = np.sqrt(signal_square)
             d = smi_on / (S1 * S2)
-            if d > 0.2:
+            if d > 0.02:
                 idx_sum.append(idx)
             i = np.array(i)
         for idx in sorted(idx_sum, reverse=True):

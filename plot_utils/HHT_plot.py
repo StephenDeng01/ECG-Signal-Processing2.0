@@ -12,11 +12,11 @@ plt.rcParams['axes.unicode_minus'] = False
 
 
 class HHT_plot:
-    def __init__(self, frequencies, times, Sxx, output_path):
+    def __init__(self, frequencies, times, Sxx):
         self.frequencies = frequencies
         self.times = times
         self.Sxx = Sxx
-        self.output_path = output_path
+        # self.output_path = output_path
 
 
     def HHT_plot(self):
@@ -27,15 +27,11 @@ class HHT_plot:
         plt.title('信号频谱图')
         plt.xlabel('时间 (s)')
         plt.ylabel('频率 (Hz)')
-        if not os.path.exists(self.output_path):
-            os.makedirs(self.output_path)
-        base_filename = os.path.join(self.output_path, "HHT")
-        file_extension = ".png"
-        output_file = base_filename + file_extension
-        counter = 1
+        # 保存图形到一个临时文件中
+        file_path = '.\\plot.png'
+        plt.savefig(file_path)
 
-        while os.path.exists(output_file):
-            output_file = f"{base_filename}_{counter}{file_extension}"
-            counter += 1
-        plt.savefig(output_file)
-        return output_file
+        # 关闭图形以释放内存
+        plt.close()
+
+        return file_path

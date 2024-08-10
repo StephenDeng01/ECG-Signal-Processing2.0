@@ -15,22 +15,20 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(978, 585)
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(Form)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
         self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
-        self.lineEdit.setPlaceholderText("请选择输入的.json文件")  # 设置提示字
+        self.lineEdit.setPlaceholderText("请选择输入文件：")  # 设置提示字
         self.verticalLayout.addWidget(self.lineEdit)
-        self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout.addWidget(self.pushButton)
+        self.lineEdit_2 = QtWidgets.QLineEdit(Form)
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.lineEdit_2.setPlaceholderText("请选择输出文件夹：")  # 设置提示字
+        self.verticalLayout.addWidget(self.lineEdit_2)
         self.horizontalLayout.addLayout(self.verticalLayout)
         self.graphicsView = QtWidgets.QGraphicsView(Form)
         self.graphicsView.setObjectName("graphicsView")
@@ -57,7 +55,6 @@ class Ui_Form(object):
         self.graphicsView_6.setObjectName("graphicsView_6")
         self.horizontalLayout_3.addWidget(self.graphicsView_6)
         self.verticalLayout_2.addLayout(self.horizontalLayout_3)
-        self.verticalLayout_3.addLayout(self.verticalLayout_2)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -65,4 +62,3 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "面向阵发房颤检测的时频分析软件"))
-        self.pushButton.setText(_translate("Form", "提取谱图"))

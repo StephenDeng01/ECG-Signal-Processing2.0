@@ -10,12 +10,12 @@ plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
 class WVD_plot:
-    def __init__(self, tfr, t, f, fs, output_path):
+    def __init__(self, tfr, t, f, fs):
         self.tfr = tfr
         self.t = t
         self.f = f
         self.fs = fs
-        self.output_path = output_path
+        # self.output_path = output_path
 
     def WVD_plot(self):
         # 绘制 WVD 频谱图
@@ -27,15 +27,12 @@ class WVD_plot:
         plt.ylabel('频率 (Hz)')
 
         plt.ylim([0, 0.5 * self.fs])  # 根据需要调整频率范围
-        if not os.path.exists(self.output_path):
-            os.makedirs(self.output_path)
-        base_filename = os.path.join(self.output_path, "WVD")
-        file_extension = ".png"
-        output_file = base_filename + file_extension
-        counter = 1
+        # 保存图形到一个临时文件中
+        file_path = '.\\plot.png'
+        plt.savefig(file_path)
 
-        while os.path.exists(output_file):
-            output_file = f"{base_filename}_{counter}{file_extension}"
-            counter += 1
-        plt.savefig(output_file)
-        return output_file
+        # 关闭图形以释放内存
+        plt.close()
+
+        return file_path
+

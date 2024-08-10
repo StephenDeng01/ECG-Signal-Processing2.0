@@ -2,7 +2,7 @@
 这里编写入口函数
 """
 import sys
-from main_window import Mainwindow
+from main_window_2 import Mainwindow
 from PyQt5.QtWidgets import QApplication
 
 
